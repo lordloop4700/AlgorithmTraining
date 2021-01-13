@@ -6,19 +6,16 @@ using namespace std;
 
 vector<string> solution(vector<string> strings, int n) {
     vector<string> answer;
-    vector<string> check_alpha;
+    vector<string> check_str;
     
-    for(auto value : strings){
-        check_alpha.push_back(value[n]);
+    for(int i = 0; i < strings.size(); i++){
+        check_str.push_back(strings[i][n] + strings[i]);
     }
     
-    check_alpha.erase(unique(check_alpha.begin(), check_alpha.end()), check_alpha.end());
+    sort(check_str.begin(), check_str.end());
     
-    for(int i = 0; i < check_alpha.size(); i++){
-        int count = 0;
-        for(int j = 0; j < strings.size(); j++){
-            if(value)
-        }
+    for(int i = 0; i < check_str.size(); i++){
+        answer.push_back( check_str[i].substr(1));
     }
     
     return answer;
