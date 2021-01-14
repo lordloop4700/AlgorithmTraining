@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <bitset>
 
 using namespace std;
 
@@ -8,26 +9,25 @@ vector<string> solution(int n, vector<int> arr1, vector<int> arr2) {
     vector<string> arr1_wall;
     vector<string> arr2_wall;
     
-    for(int i = 0; i < n; i++){       
+    for(int i = 0; i < n; i++){
+        arr1_wall[i] = bitset<5>(arr1[i]).to_string();
+    }
+    
+    for(int i = 0; i < n; i++){
+        arr2_wall[i] = bitset<5>(arr2[i]).to_string();
+    }
+    
+    for(int i = 0; i < n; i++){
+        string str = "";
         
-        if(arr1[i] < 16){
-            string make = "0";
-            
-            for(int j = arr1[i]; j > 0 ; j++){
-                make += to_string(j % 2);
-                j /= 2;
+        for(int j = 0; j < n; j++){
+            if(arr1_wall[i][j] || arr2_wall[i][j]){
+                str += "#";
+            }else{
+                str += " ";
             }
-            arr1_wall[i] = make;
-            
-        }else{
-            string make = "";
-            
-            for(int j = arr1[i]; j > 0 ; j++){
-                make += to_string(j % 2);
-                j /= 2;
-            }
-            arr1_wall[i] = make;
         }
+        answer.push_back(str);
     }
     
     return answer;
