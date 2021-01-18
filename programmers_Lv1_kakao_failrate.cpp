@@ -31,10 +31,14 @@ vector<int> solution(int N, vector<int> stages) {
     for(int i = 0; i < N; i++){
         double check = *min_element(stages_failrate.begin(), stages_failrate.end());
         
-        for()
+        for(int j = 0; j < N; j++){
+            if(stages_failrate[j] == check){
+                answer.push_back(j + 1);
+                stages_failrate[j] = N + 1;
+                break;
+            }
+        }
     }
 
-    
-    
     return answer;
 }
