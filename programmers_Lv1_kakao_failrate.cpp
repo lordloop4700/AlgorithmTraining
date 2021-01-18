@@ -7,7 +7,7 @@ using namespace std;
 vector<int> solution(int N, vector<int> stages) {
     vector<int> answer;
     int user = stages.size();
-    vector<int> stages_failrate;
+    vector<double> stages_failrate;
     
     sort(stages.begin(), stages.end(), less<int>());
     
@@ -18,11 +18,20 @@ vector<int> solution(int N, vector<int> stages) {
             else break;
         }
         
-        stages_failrate.push_back(count);
+        stages_failrate.push_back((double)count);
     }
     
     for(int i = 0; i < N; i++){
-        //실패율 계산 루틴
+        double save = stages_failrate[i];
+        
+        stages_failrate[i] /= user;
+        user -= save;
+    }
+    
+    for(int i = 0; i < N; i++){
+        double check = *min_element(stages_failrate.begin(), stages_failrate.end());
+        
+        for()
     }
 
     
