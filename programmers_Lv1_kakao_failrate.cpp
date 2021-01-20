@@ -40,5 +40,7 @@ vector<int> solution(int N, vector<int> stages) {
         }
     }
 
+    //문제점: for문의 범위가 잘못됨. (stages의 각각의 값은 도달은 했지만 클리어하지 못한 경우)
+
     return answer;
 }
