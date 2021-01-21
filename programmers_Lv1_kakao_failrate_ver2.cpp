@@ -5,7 +5,11 @@
 using namespace std;
 
 bool check(pair<int, double> &a, pair<int, double> &b){
-    
+    if(a.second == b.second){
+        return a.first > b.first;
+    }
+
+    return a.second > b.second;
 }
 
 vector<int> solution(int N, vector<int> stages) {
@@ -31,6 +35,9 @@ vector<int> solution(int N, vector<int> stages) {
 
     sort(stages_failrate.begin(), stages_failrate.end());
     
-    
+    for(int i = 0; i < stages_failrate.size(); i++){
+        answer.push_back(stages_failrate[i].first);
+    }
+
     return answer;
 }
