@@ -4,13 +4,17 @@
 
 using namespace std;
 
+bool check(pair<int, double> &a, pair<int, double> &b){
+    
+}
+
 vector<int> solution(int N, vector<int> stages) {
     vector<int> answer;
     vector<pair<int, double>> stages_failrate;
     int user = stages.size();
     
     for(int i = 0; i < N; i++){
-        stages_failrate[i].first(i + 1);
+        stages_failrate[stages[i]].first += 1;
     }
     
     for(int i = 1; i <= N + 1; i++){
@@ -21,9 +25,11 @@ vector<int> solution(int N, vector<int> stages) {
             }
         }
         
-        stages_failrate[i - 1].second(count / (double)user);
+        stages_failrate[i - 1].second = count / (double)user;
         user -= count;
     }
+
+    sort(stages_failrate.begin(), stages_failrate.end());
     
     
     return answer;
