@@ -33,7 +33,7 @@ vector<int> solution(int N, vector<int> stages) {
         user -= count;
     }
 
-    sort(stages_failrate.begin(), stages_failrate.end());
+    sort(stages_failrate.begin(), stages_failrate.end(), check);
     
     for(int i = 0; i < stages_failrate.size(); i++){
         answer.push_back(stages_failrate[i].first);
