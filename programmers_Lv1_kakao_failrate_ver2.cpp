@@ -18,7 +18,7 @@ vector<int> solution(int N, vector<int> stages) {
     int user = stages.size();
     
     for(int i = 0; i < N; i++){
-        stages_failrate[stages[i]].first += 1;
+        stages_failrate.push_back(make_pair(i + 1, 0));
     }
     
     for(int i = 1; i <= N + 1; i++){
