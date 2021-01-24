@@ -9,7 +9,7 @@ bool check(pair<int, double> &a, pair<int, double> &b){
         return a.first > b.first;
     }
 
-    return a.second > b.second;
+    return a.second < b.second;
 }
 
 vector<int> solution(int N, vector<int> stages) {
