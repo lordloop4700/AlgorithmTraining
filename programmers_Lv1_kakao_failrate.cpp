@@ -39,7 +39,19 @@ vector<int> solution(int N, vector<int> stages) {
             }
         }
     }
-
+/*
+    for(int i = 1; i <= N + 1; i++){
+        int count = 0;
+        for(int j = 0; j < stages.size(); j++){
+            if(stages[j] == i){
+                count++;
+            }
+        }
+        
+        stages_failrate[i - 1].second = count / (double)user;
+        user -= count;
+    }
+*/
     //문제점: for문의 범위가 잘못됨. (stages의 각각의 값은 도달은 했지만 클리어하지 못한 경우)
 
     return answer;
