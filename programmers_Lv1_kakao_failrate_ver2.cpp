@@ -24,6 +24,7 @@ vector<int> solution(int N, vector<int> stages) {
     for(int i = 0; i < N; i++){
         stages_failrate.push_back(make_pair(i, 0));
     }
+    오늘은 코드의 문제점을 찾고, 해결
     */
     
     for(int i = 1; i <= N + 1; i++){
